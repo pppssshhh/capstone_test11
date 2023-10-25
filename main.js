@@ -236,6 +236,7 @@ $(function () {
         const value = classValueMapping[cla] || 0;
 
 
+
         const resultsContainer = document.getElementById("results-container");
         resultsContainer.innerHTML = "";
 
@@ -330,3 +331,4 @@ $(function () {
     }
 
 });
+
