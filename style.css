@@ -59,11 +59,11 @@ body {
 
 /* 카메라 페이지 버튼 */
 #goToOtherPage {
-  width: 80px;
+  width: 90px;
   height: 40px;
   padding: 10px;
   position: relative;
-  left: 100px;
+  left: 90px;
   top: -20px;
   font-size: 12px;
   background-color: darkgray;
@@ -81,6 +81,6 @@ body {
 /* 환율 */
 #exchange {
   font-size: 16px;
-  margin-right: 160px;
+  margin-right: 170px;
   margin-top: 5px;
 }
