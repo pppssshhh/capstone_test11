@@ -67,7 +67,7 @@ body:after {
 #results-container {
     position: fixed;
     bottom: 0;
-    height: 30%;
+    height: 10%;
     width: 100%;
     text-align: center;
     background-color: white;
