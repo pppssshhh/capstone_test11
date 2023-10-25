@@ -116,7 +116,6 @@ $(function () {
         predictions.forEach(function (prediction) {
             const x = prediction.bbox.x;
             const y = prediction.bbox.y;  
-            
             const width = prediction.bbox.width;
             const height = prediction.bbox.height;
 
@@ -234,29 +233,33 @@ $(function () {
             "ten": 10,
             "fifty": 50,
             "twenty": 20,
-
-        }
-        const classes = predictions.map(prediction => prediction.class);
-        let cla = classes[0]
-
-        const value = classValueMapping[cla] || 0;
-
-
-
+        };
+    
+        let totalValue = 0; // 결과를 합산할 변수
+    
+        predictions.forEach(function (prediction) {
+            const classLabel = prediction.class;
+            const value = classValueMapping[classLabel] || 0;
+            totalValue += value; // 결과 합산
+        });
+    
         const resultsContainer = document.getElementById("results-container");
         resultsContainer.innerHTML = "";
-
-        predictions.forEach(function (prediction) {
-            const resultElement = document.createElement("div");
-            const finall = value * usd_price
-            const formattedValue = finall.toLocaleString();
-            
-            // 결과 출력 파트⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀➜
-            resultElement.textContent = `🇺🇸 : $${value} ⠀=⠀🇰🇷 : ₩${formattedValue}`;
-            resultsContainer.appendChild(resultElement);
-        });
+    
+        const resultElement = document.createElement("div");
+        const finall = totalValue * usd_price; // 결과 합산값에 환율 적용
+        const formattedValue = finall.toLocaleString();
+        
+        resultElement.textContent = `🇺🇸 : $${totalValue} ⠀=⠀🇰🇷 : ₩${formattedValue}`;
+        resultsContainer.appendChild(resultElement);
     }
-
+   
+    
+    
+    
+    
+    
+    
 
 
 
