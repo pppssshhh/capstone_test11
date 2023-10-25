@@ -13,7 +13,6 @@ body.loading video {
 }
 
 body.loading:before {
-    content: "Loading Model...";
     color: white;
     text-align: center;
     width: 100%;
@@ -73,7 +72,7 @@ body:after {
     background-color: white;
     color: black;
     left: 0px;
-    font-size: 40px;
+    font-size: 35px;
 }
 #video-container {
     position: relative;
@@ -82,7 +81,7 @@ body:after {
 
 #text-overlay {
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
