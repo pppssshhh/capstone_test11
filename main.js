@@ -115,8 +115,8 @@ $(function () {
 
         predictions.forEach(function (prediction) {
             const x = prediction.bbox.x;
-            const y = prediction.bbox.y;
-
+            const y = prediction.bbox.y;  
+            
             const width = prediction.bbox.width;
             const height = prediction.bbox.height;
 
@@ -143,9 +143,15 @@ $(function () {
         });
 
         predictions.forEach(function (prediction) {
+            const classValueMapping = {
+                "one": 1,
+                "five": 5,
+                "ten": 10,
+                "fifty": 50,
+                "twenty": 20,
+            }
             const x = prediction.bbox.x;
             const y = prediction.bbox.y;
-
             const width = prediction.bbox.width;
             const height = prediction.bbox.height;
 
@@ -154,7 +160,7 @@ $(function () {
             ctx.textBaseline = "top";
             ctx.fillStyle = "#000000";
             ctx.fillText(
-                prediction.class,
+                "$"+classValueMapping[prediction.class],
                 (x - width / 2) / scale + 4,
                 (y - height / 2) / scale + 1
             );
@@ -179,7 +185,7 @@ $(function () {
                         "one": 1,
                         "five": 5,
                         "ten": 10,
-                        "fifty": 15,
+                        "fifty": 50,
                         "twenty": 20,
                     }
 
@@ -226,7 +232,7 @@ $(function () {
             "one": 1,
             "five": 5,
             "ten": 10,
-            "fifty": 15,
+            "fifty": 50,
             "twenty": 20,
 
         }
