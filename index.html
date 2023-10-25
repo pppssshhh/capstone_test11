@@ -40,20 +40,75 @@
         });
     </script>
 
-    <h3 id="exchange">환율()</h3>
+    <script> // jpy 환율 정보
+        let jpy_price;
+        const jpy_url = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/jpy/krw.json";
+
+        fetch(jpy_url)
+            .then(response => response.json())
+            .then(data => {
+                jpy_price = parseInt(data.krw*100);
+
+                const jpyCell = document.getElementById('jpy-cell');
+                jpyCell.textContent = jpy_price.toLocaleString() + ' KRW'; // 환율에 'KRW'를 추가하고 형식화
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    </script>
+
+    <script> //usd 환율 정보
+        let usd_price;
+        const usd_url = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd/krw.json";
+
+        fetch(usd_url) // URL로 HTTP 요청 
+            .then(response => response.json())  // 응답 객체를 JSON 형식으로 변환
+            .then(data => {
+                usd_price = parseInt(data.krw); // JSON 데이터에서 krw 값을 추출하여 usd_price에 정수형으로 변환
+
+                const usdCell = document.getElementById('usd-cell');
+                usdCell.textContent = usd_price.toLocaleString() + ' KRW'; // 환율에 'KRW'를 추가하고 형식화
+
+                // '환율()' 괄호 안에 data.date 삽입
+                const exchangeElement = document.getElementById('exchange');
+                exchangeElement.textContent = `환율(${data.date})`;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    </script>
+
+    <script> //aud 환율 정보
+        let aud_price;
+        const aud_url = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/aud/krw.json";
+
+        fetch(aud_url) // URL로 HTTP 요청 
+            .then(response => response.json())  // 응답 객체를 JSON 형식으로 변환
+            .then(data => {
+                aud_price = parseInt(data.krw); // JSON 데이터에서 krw 값을 추출하여 aud_price에 정수형으로 변환
+
+                const audCell = document.getElementById('aud-cell');
+                audCell.textContent = aud_price.toLocaleString() + ' KRW'; // 환율에 'KRW'를 추가하고 형식화
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    </script>
+
+    <h3 id='exchange'></h3>
     <table width="300" height="100">
-        <tbody>   
+        <tbody>
             <tr>
                 <td align="left">🇺🇸 미국 USD</td>
-                <td >1300</td>
+                <td id="usd-cell"></td>
             </tr>
             <tr>
                 <td align="left">🇯🇵 일본 JPY</td>
-                <td>900</td>
+                <td id="jpy-cell"></td>
             </tr>
             <tr>
                 <td align="left">🇦🇺 호주 AUD</td>
-                <td>800</td>
+                <td id="aud-cell"></td>
             </tr>
         </tbody>
     </table>
