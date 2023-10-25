@@ -245,7 +245,7 @@ $(function () {
             const formattedValue = finall.toLocaleString();
             
             // 결과 출력 파트
-            resultElement.textContent = `USA \u{1F1F0}\u{1F1FC} 🇰🇷 : ${value}$⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ Korea : ${formattedValue} ₩`;
+            resultElement.textContent = `🇺🇸 : ${value} $ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 🇰🇷 : ${formattedValue} ₩`;
             resultsContainer.appendChild(resultElement);
         });
     }
