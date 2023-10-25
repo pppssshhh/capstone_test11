@@ -244,8 +244,8 @@ $(function () {
             const finall = value * usd_price
             const formattedValue = finall.toLocaleString();
             
-            // 결과 출력 파트
-            resultElement.textContent = `🇺🇸 : ${value} $ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 🇰🇷 : ${formattedValue} ₩`;
+            // 결과 출력 파트⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀➜
+            resultElement.textContent = `🇺🇸 : ${value} $ ⠀ ⠀➜ ⠀⠀🇰🇷 : ${formattedValue} ₩`;
             resultsContainer.appendChild(resultElement);
         });
     }
